@@ -1,0 +1,13 @@
+//
+//  development.xcconfig
+//  Assignment
+//
+//  Created by Dongju on 2022/08/19.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// baseUrl
+BASE_URL = https:\/\/codingtest.op.gg/api/summoner/genetory
+
