@@ -10,11 +10,11 @@ import UIKit
 
 public enum Opgg {
     case summoner(name: String)
+    case gameInfomation(name: String, lastMatch: Int64)
 }
 
 extension Opgg: TargetType {
     public var baseURL: URL {
-        print(URL(string: OPGGKey.baseURL!)!)
         return URL(string: OPGGKey.baseURL!)!
     }
     
@@ -22,19 +22,21 @@ extension Opgg: TargetType {
         switch self {
         case let .summoner(name):
             return "\(name)"
+        case let .gameInfomation(name, _):
+            return "\(name)/matches"
         }
     }
     
     public var method: Moya.Method {
         switch self {
-        case .summoner:
+        case .summoner, .gameInfomation:
             return .get
         }
     }
     
     public var task: Task {
         switch self {
-        case .summoner:
+        case .summoner, .gameInfomation:
             return .requestParameters(parameters: parameters,
                                       encoding: URLEncoding(destination: .queryString))
         }
@@ -53,6 +55,8 @@ extension Opgg {
         switch self {
         case .summoner:
             return [:]
+        case let .gameInfomation(_, lastMatch):
+            return ["lastMatch" : lastMatch]
         }
     }
 }

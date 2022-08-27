@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Assignment
+
+  Created by Atlas on 2022/08/25.
+  
+*/
+
+"Double Kill" = "ダブルキル";
+"Triple Kill" = "トリプルキル";
+"Quadra Kill" = "クワドラキル";
+"Penta Kill" = "ペンタキル";
